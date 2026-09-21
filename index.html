@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0c0d0f" />
+  <title>Тон — оценка трека</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><div class="ambient-glow"></div><div class="ambient-grid"></div><div class="ambient-beam"></div><div class="ambient-fog"></div><img class="ambient-cross" src="assets/ornament.svg" alt="" /><img class="ambient-character" src="assets/character.webp" alt="" /></div>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="identity" href="#top" aria-label="Тон — начало страницы"><img src="assets/logo.png" alt="" /><span>ТОН<span class="identity-dot">.</span></span></a>
+      <div class="topbar-center"></span> Build v1.3</div>
+      <div class="topbar-right">rating from yulsi <span class="topbar-icon">✳</span></div>
+    </header>
+
+    <main id="top">
+      <section class="intro">
+        <div class="intro-overline"><span class="little-line"></span> ИНТЕРАКТИВНАЯ ОЦЕНКА</div>
+        <h1>Слушай<br /><span>и ставь свою оценку.</span></h1>
+        <div class="ornament-divider" aria-hidden="true"><i></i><span>✦</span><i></i></div>
+        <p>Крути оценку, и позже можешь её скопировать.</p>
+      </section>
+
+      <section class="console" aria-label="Основная оценка">
+        <article class="module primary-module">
+          <div class="module-bar"><span>01 / РИТМ</span><span class="bar-decoration">•••</span></div>
+          <div class="module-content">
+            <div class="display beat-display" aria-hidden="true">
+              <div class="display-grid"></div>
+              <div class="beat-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <span class="display-label">RHYTHM / WAVEFORM</span>
+            </div>
+            <div class="primary-control">
+              <div class="control-copy"><span class="control-number">01.1</span><h2>Бит</h2><p>Ритм и кач</p></div>
+              <div class="knob large" data-key="beat" role="slider" tabindex="0" aria-label="Бит" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div class="knob-track"></div><div class="knob-dot"></div><div class="knob-face"><strong class="knob-value">0.0</strong><small>/ 10</small></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="module result-module">
+          <div class="module-bar"><span>02 / ИТОГ</span><span class="live-indicator"><i></i></span></div>
+          <div class="result-content">
+            <div class="result-halo" aria-hidden="true"></div>
+            <span class="result-overline">ТВОЯ ОЦЕНКА ТРЕКА</span>
+            <div class="score-wrap"><span id="score" aria-live="polite">0.0</span><span class="score-max">/10</span></div>
+            <h2 id="result-heading">Начни оценку</h2>
+            <p id="result-description">Поверни крутилки и оцени трек.</p>
+            <div class="focus-wrap"><span>ОЦЕНИВАЕМ</span><div class="focus-buttons" role="group" aria-label="Приоритет оценки"><button type="button" class="focus-button is-active" data-focus="all" aria-pressed="true">Трек</button><button type="button" class="focus-button" data-focus="beat" aria-pressed="false">Бит</button><button type="button" class="focus-button" data-focus="lyrics" aria-pressed="false">Демочку</button></div></div>
+          </div>
+          <div class="result-actions"><button type="button" id="reset-button" class="icon-action" aria-label="Сбросить оценки" title="Сбросить оценки">⭮</button><button type="button" id="copy-button" class="copy-button"><span>СКОПИРОВАТЬ ОЦЕНКУ</span><span aria-hidden="true">🗐</span></button></div>
+        </article>
+
+        <article class="module primary-module">
+          <div class="module-bar"><span>03 / СЛОВА</span><span class="bar-decoration">•••</span></div>
+          <div class="module-content">
+            <div class="display lyrics-display" aria-hidden="true">
+              <div class="display-grid"></div><div class="lyric-lines"><i></i><i></i><i></i><i></i></div>
+              <span class="display-label">LYRICS / EXPRESSION</span>
+            </div>
+            <div class="primary-control">
+              <div class="control-copy"><span class="control-number">03.1</span><h2>Текст</h2><p>Слова и смысл</p></div>
+              <div class="lyrics-score-control"><div class="knob large cyan" data-key="lyrics" role="slider" tabindex="0" aria-label="Текст" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div class="knob-track"></div><div class="knob-dot"></div><div class="knob-face"><strong class="knob-value">0.0</strong><small>/ 10</small></div></div><button type="button" id="unclear-lyrics" class="unclear-button" aria-pressed="false" title="Выставить тексту 4 из 10">Неразборчивый текст</button></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="details module" aria-labelledby="details-title">
+        <div class="module-bar"><span id="details-title">04 / ОСНОВА</span><span>НАСТРОЙ ПО СВОЕМУ ВКУСУ</span></div>
+        <div class="detail-grid">
+          <div class="detail-control"><div class="knob" data-key="sound" role="slider" tabindex="0" aria-label="Звучание" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div class="knob-track"></div><div class="knob-dot"></div><div class="knob-face"><strong class="knob-value">0.0</strong><small>/ 10</small></div></div><h3>Звучание</h3><span>SOUND</span></div>
+          <div class="detail-control"><div class="knob pink" data-key="idea" role="slider" tabindex="0" aria-label="Идея" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div class="knob-track"></div><div class="knob-dot"></div><div class="knob-face"><strong class="knob-value">0.0</strong><small>/ 10</small></div></div><h3>Идея</h3><span>CONCEPT</span></div>
+          <div class="detail-control"><div class="knob cyan" data-key="energy" role="slider" tabindex="0" aria-label="Энергия" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div class="knob-track"></div><div class="knob-dot"></div><div class="knob-face"><strong class="knob-value">0.0</strong><small>/ 10</small></div></div><h3>Энергия</h3><span>ENERGY</span></div>
+          <div class="detail-control"><div class="knob" data-key="impression" role="slider" tabindex="0" aria-label="Впечатление" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div class="knob-track"></div><div class="knob-dot"></div><div class="knob-face"><strong class="knob-value">0.0</strong><small>/ 10</small></div></div><h3>Впечатление</h3><span>FEELING</span></div>
+        </div>
+      </section>
+
+      <section class="extras module" aria-labelledby="extras-title">
+        <div class="module-bar"><span id="extras-title">05 / ДОПОЛНИТЕЛЬНО</span><span>ВЫБЕРИ, ЕСЛИ ТРЕБУЕТСЯ</span></div>
+        <div class="extras-content">
+          <div class="extras-head"><div><h2>Ещё критерии</h2><p>Дополнительные пункты которые будут участвовать в итоговой оценке.</p></div><span class="extras-count" id="extras-count">0 / 4 ВКЛЮЧЕНО</span></div>
+          <div class="extra-grid">
+            <div class="extra-item" data-extra="atmosphere"><button type="button" class="extra-toggle" aria-pressed="false"><span class="extra-symbol">◌</span><span>Атмосфера</span><span class="extra-plus">+</span></button><div class="extra-range"><input type="range" min="0" max="10" step="0.5" value="0" aria-label="Атмосфера" disabled /><output>0.0</output></div></div>
+            <div class="extra-item" data-extra="mix"><button type="button" class="extra-toggle" aria-pressed="false"><span class="extra-symbol">≋</span><span>Сведение</span><span class="extra-plus">+</span></button><div class="extra-range"><input type="range" min="0" max="10" step="0.5" value="0" aria-label="Сведение" disabled /><output>0.0</output></div></div>
+            <div class="extra-item" data-extra="vocal"><button type="button" class="extra-toggle" aria-pressed="false"><span class="extra-symbol">♬</span><span>Подача</span><span class="extra-plus">+</span></button><div class="extra-range"><input type="range" min="0" max="10" step="0.5" value="0" aria-label="Подача" disabled /><output>0.0</output></div></div>
+            <div class="extra-item" data-extra="originality"><button type="button" class="extra-toggle" aria-pressed="false"><span class="extra-symbol">✳</span><span>Оригинальность</span><span class="extra-plus">+</span></button><div class="extra-range"><input type="range" min="0" max="10" step="0.5" value="0" aria-label="Оригинальность" disabled /><output>0.0</output></div></div>
+          </div>
+        </div>
+      </section>
+      <div class="bottom-note"><span class="note-pulse"></span> ОЦЕНКА СТРОИТСЯ ТОЛЬКО НА ТВОИХ ОЩУЩЕНИЯХ</div>
+    </main>
+    <footer><span>ТОН © 2026</span><span>МУЗЫКА — ДЕЛО ЛИЧНОЕ</span></footer>
+  </div>
+</body>
+</html>
